@@ -1,0 +1,18 @@
+# Minimal sway session used only for the login screen.
+# Deliberately does NOT include /etc/sway/config.d/* so no bar starts here.
+exec "gtkgreet -l -s /etc/greetd/gtkgreet.css; swaymsg exit"
+
+output * bg #0d2530 solid_color
+default_border none
+seat * hide_cursor 5000
+
+input type:keyboard {
+    xkb_layout us
+}
+input type:touchpad {
+    tap enabled
+}
+
+# Escape hatches
+bindsym Mod4+Shift+e exec swaynag -t warning -m 'Leave the greeter?' \
+    -B 'Power off' 'systemctl poweroff' -B 'Reboot' 'systemctl reboot'

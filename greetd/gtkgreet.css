@@ -1,0 +1,67 @@
+/* gtkgreet — openSUSE theme */
+window {
+  background-color: #0d2530;
+  color: #e8f1f2;
+  font-family: "Source Sans Pro", "Noto Sans", sans-serif;
+  font-size: 15px;
+}
+
+box {
+  background-color: transparent;
+}
+
+label {
+  color: #e8f1f2;
+}
+
+/* The big clock/greeting label gtkgreet shows at the top */
+window > box > box > label:first-child {
+  color: #73ba25;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+entry {
+  background-color: #173f4f;
+  color: #e8f1f2;
+  caret-color: #73ba25;
+  border: 2px solid #173f4f;
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 260px;
+  box-shadow: none;
+}
+entry:focus {
+  border-color: #35b9ab;
+}
+
+combobox button,
+combobox box {
+  background-color: #173f4f;
+  color: #e8f1f2;
+  border: none;
+  border-radius: 8px;
+}
+
+button {
+  background-image: none;
+  background-color: #73ba25;
+  color: #0d2530;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  box-shadow: none;
+  text-shadow: none;
+}
+button:hover {
+  background-color: #8fd14f;
+}
+button:active {
+  background-color: #35b9ab;
+}
+
+menu, .menu, popover {
+  background-color: #173f4f;
+  color: #e8f1f2;
+}
