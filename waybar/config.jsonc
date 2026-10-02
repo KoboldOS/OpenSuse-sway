@@ -1,0 +1,83 @@
+// waybar — openSUSE theme
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "spacing": 6,
+  "margin-top": 6,
+  "margin-left": 8,
+  "margin-right": 8,
+
+  "modules-left": ["custom/opensuse", "sway/workspaces", "sway/mode", "sway/scratchpad"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "tray"],
+
+  "custom/opensuse": {
+    // U+F314 (Nerd Fonts "linux-opensuse" glyph); replace with "openSUSE" if you don't use a Nerd Font
+    "format": "\uf314",
+    "tooltip": false,
+    "on-click": "wofi --show drun"
+  },
+
+  "sway/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": false,
+    "format": "{name}"
+  },
+
+  "sway/mode": { "format": "{}" },
+
+  "sway/scratchpad": {
+    "format": "\uf2d2 {count}",
+    "show-empty": false,
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "months":   "<span color='#73ba25'><b>{}</b></span>",
+        "weekdays": "<span color='#35b9ab'><b>{}</b></span>",
+        "today":    "<span color='#21a4df'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "cpu": { "format": "\uf4bc {usage}%", "interval": 5 },
+  "memory": { "format": "\uefc5 {percentage}%", "interval": 10 },
+
+  "temperature": {
+    "critical-threshold": 85,
+    "format": "\uf2c9 {temperatureC}°"
+  },
+
+  "battery": {
+    "states": { "warning": 25, "critical": 10 },
+    "format": "{icon} {capacity}%",
+    "format-charging": "\uf0e7 {capacity}%",
+    "format-plugged": "\uf1e6 {capacity}%",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+  },
+
+  "network": {
+    "format-wifi": "\uf1eb {essid}",
+    "format-ethernet": "\uf6ff {ipaddr}",
+    "format-disconnected": "\uf05e offline",
+    "tooltip-format": "{ifname}  {ipaddr}/{cidr}\n↑ {bandwidthUpBytes}  ↓ {bandwidthDownBytes}",
+    "on-click": "foot -e nmtui"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "\uf6a9 muted",
+    "format-icons": { "default": ["\uf026", "\uf027", "\uf028"] },
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
+  "tray": { "icon-size": 16, "spacing": 8 }
+}

@@ -1,0 +1,44 @@
+/* wofi — openSUSE theme */
+* {
+  font-family: "Source Sans Pro", "Noto Sans", sans-serif;
+  font-size: 14px;
+}
+
+window {
+  background-color: rgba(13, 37, 48, 0.96);   /* #0d2530 */
+  border: 2px solid #73ba25;
+  border-radius: 12px;
+}
+
+#outer-box { margin: 12px; }
+
+#input {
+  background-color: #173f4f;
+  color: #e8f1f2;
+  border: 2px solid #173f4f;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+}
+#input:focus {
+  border-color: #35b9ab;
+  box-shadow: none;
+}
+
+#inner-box, #scroll { background-color: transparent; }
+
+#entry {
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+#entry #text { color: #e8f1f2; }
+#entry image { margin-right: 10px; }
+
+#entry:selected {
+  background-color: #73ba25;
+  outline: none;
+}
+#entry:selected #text {
+  color: #0d2530;
+  font-weight: bold;
+}
