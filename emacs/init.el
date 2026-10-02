@@ -31,7 +31,16 @@
       use-short-answers t
       scroll-conservatively 101
       custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file) (load custom-file))
+;; Emacs writes custom.el without a lexical-binding cookie, which Emacs 30+
+;; warns about on load. Add the cookie if it's missing, then load the file.
+(when (file-exists-p custom-file)
+  (with-temp-buffer
+    (insert-file-contents custom-file)
+    (goto-char (point-min))
+    (unless (looking-at-p ".*-\\*-.*lexical-binding")
+      (insert ";;; custom.el -*- lexical-binding: t; -*-\n")
+      (write-region nil nil custom-file nil 'silent)))
+  (load custom-file nil 'nomessage))
 (electric-pair-mode 1)
 (save-place-mode 1)
 (recentf-mode 1)
