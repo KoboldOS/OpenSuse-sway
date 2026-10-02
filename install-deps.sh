@@ -49,6 +49,8 @@ EXTRAS=(
   pavucontrol                # waybar volume click
   NetworkManager-tui         # waybar network click (nmtui)
   xdg-desktop-portal-wlr     # screen sharing / portals
+  starship                   # shell prompt
+  emacs                      # editor (pgtk build on Tumbleweed)
 )
 FONTS=(
   adobe-sourcesanspro-fonts  # UI font

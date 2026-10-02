@@ -1,0 +1,123 @@
+# starship — openSUSE theme  (needs a Nerd Font for the glyphs)
+"$schema" = "https://starship.rs/config-schema.json"
+
+palette = "opensuse"
+add_newline = true
+
+format = """
+[](green)\
+$os\
+$username\
+[](fg:green bg:pine)\
+$directory\
+[](fg:pine bg:cyan)\
+$git_branch\
+$git_status\
+[](fg:cyan bg:blue)\
+$c\
+$rust\
+$golang\
+$python\
+$nodejs\
+$lua\
+$terraform\
+[](fg:blue bg:deep)\
+$cmd_duration\
+[](fg:deep)\
+$line_break\
+$character"""
+
+[palettes.opensuse]
+green  = "#73ba25"
+lime   = "#8fd14f"
+cyan   = "#35b9ab"
+blue   = "#21a4df"
+pine   = "#173f4f"
+deep   = "#0d2530"
+fg     = "#e8f1f2"
+muted  = "#9cb7bf"
+red    = "#e05a5a"
+yellow = "#f0c24b"
+
+[os]
+disabled = false
+style = "bg:green fg:deep"
+format = "[$symbol]($style)"
+
+[os.symbols]
+openSUSE = " "
+SUSE     = " "
+Linux    = " "
+
+[username]
+show_always = true
+style_user = "bg:green fg:deep bold"
+style_root = "bg:green fg:red bold"
+format = "[$user ]($style)"
+
+[directory]
+style = "bg:pine fg:fg"
+format = "[ $path ]($style)[$read_only]($read_only_style)"
+read_only = " "
+read_only_style = "bg:pine fg:red"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Projects"  = " "
+
+[git_branch]
+symbol = ""
+style = "bg:cyan fg:deep"
+format = "[ $symbol $branch ]($style)"
+
+[git_status]
+style = "bg:cyan fg:deep bold"
+format = "[($all_status$ahead_behind )]($style)"
+
+[c]
+symbol = ""
+style = "bg:blue fg:deep"
+format = "[ $symbol ($version) ]($style)"
+
+[rust]
+symbol = ""
+style = "bg:blue fg:deep"
+format = "[ $symbol ($version) ]($style)"
+
+[golang]
+symbol = ""
+style = "bg:blue fg:deep"
+format = "[ $symbol ($version) ]($style)"
+
+[python]
+symbol = ""
+style = "bg:blue fg:deep"
+format = "[ $symbol ($version)( \\($virtualenv\\)) ]($style)"
+
+[nodejs]
+symbol = ""
+style = "bg:blue fg:deep"
+format = "[ $symbol ($version) ]($style)"
+
+[lua]
+symbol = ""
+style = "bg:blue fg:deep"
+format = "[ $symbol ($version) ]($style)"
+
+[terraform]
+symbol = "󱁢"
+style = "bg:blue fg:deep"
+format = "[ $symbol $workspace ]($style)"
+
+[cmd_duration]
+min_time = 2000
+style = "bg:deep fg:muted"
+format = "[  $duration ]($style)"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol   = "[❯](bold red)"
+vimcmd_symbol  = "[❮](bold cyan)"
